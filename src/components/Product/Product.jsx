@@ -1,11 +1,11 @@
 import styles from "./Product.module.css";
 
-const Product = (props) => {
+const Product = ({products,onDelete}) => {
   return (
     <div className={styles.product}>
-      <p>Product Name : {props.name} Course</p>
-      <p>Product Price : {props.price}</p>
-      <button onClick={props.onDelete}>Delete</button>
+      <p>Product Name : {products.name} Course</p>
+      <p>Product Price : {products.price}</p>
+      <button onClick={onDelete}>Delete</button>
     </div>
   );
 };
