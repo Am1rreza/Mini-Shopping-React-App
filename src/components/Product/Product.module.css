@@ -8,4 +8,32 @@
   justify-content: space-around;
   width: 40rem;
   margin-top: 20px;
+  color: #333;
+}
+
+.button {
+  color: #6d28d9;
+  background-color: #fff;
+  border: 1px solid #6d28d9;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+  padding: 5px 10px;
+}
+
+.inc {
+  background-color: #ede9fe;
+}
+
+.value {
+  display: flex;
+  width: 25px;
+  height: 25px;
+  background-color: #ede9fe;
+  color: #6d28d9;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 500;
 }
