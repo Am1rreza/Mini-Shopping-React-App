@@ -21,7 +21,7 @@ const ProductList = () => {
         return (
           <Product
             key={product.id}
-            products={products}
+            product={product}
             onDelete={() => removeHandler(product.id)}
           />
         );
