@@ -15,6 +15,13 @@ const ProductList = () => {
     setProducts(filteredProducts);
   };
 
+  const incrementHandler = (id) => {
+    const allProducts = [...products];
+    const selectedItem = allProducts.find((p) => p.id === id);
+    selectedItem.quantity++;
+    setProducts(allProducts);
+  };
+
   return (
     <div>
       {products.map((product) => {
@@ -23,6 +30,7 @@ const ProductList = () => {
             key={product.id}
             product={product}
             onDelete={() => removeHandler(product.id)}
+            onIncrement={() => incrementHandler(product.id)}
           />
         );
       })}
