@@ -1,6 +1,5 @@
 import "./App.css";
 import React, { Component } from "react";
-import Product from "./components/Product/Product";
 import ProductList from "./components/ProductList/ProductList";
 
 class App extends Component {
