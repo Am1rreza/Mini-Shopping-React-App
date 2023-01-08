@@ -9,6 +9,12 @@ const ProductList = () => {
     { id: 4, title: "Tailwind", price: "39$" },
   ]);
 
+  // handlers
+  const removeHandler = (id) => {
+    const filteredProducts = products.filter((p) => p.id !== id);
+    setProducts(filteredProducts);
+  };
+
   return (
     <div>
       {products.map((product) => {
@@ -17,6 +23,7 @@ const ProductList = () => {
             name={product.title}
             price={product.price}
             key={product.id}
+            onDelete={() => removeHandler(product.id)}
           />
         );
       })}
