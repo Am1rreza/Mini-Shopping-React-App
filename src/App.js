@@ -7,9 +7,9 @@ class App extends Component {
   state = {
     products: [
       { id: 1, title: "React", price: "99$", quantity: 1 },
-      { id: 2, title: "HTML & CSS", price: "19$", quantity: 2 },
+      { id: 2, title: "HTML & CSS", price: "19$", quantity: 1 },
       { id: 3, title: "Node JS", price: "79$", quantity: 1 },
-      { id: 4, title: "Tailwind", price: "39$", quantity: 3 },
+      { id: 4, title: "Tailwind", price: "39$", quantity: 1 },
     ],
   };
 
@@ -20,35 +20,53 @@ class App extends Component {
   };
 
   incrementHandler = (id) => {
-    const allProducts = [...this.state.products];
-    const selectedItem = allProducts.find((p) => p.id === id);
-    selectedItem.quantity++;
-    this.setState({ products: allProducts });
+    const index = this.state.products.findIndex((p) => p.id === id);
+    // get all of the products
+    const products = [...this.state.products];
+    // clone the selected index and update the quantity
+    const product = { ...this.state.products[index] };
+    product.quantity++;
+    // replace the product
+    products[index] = product;
+    // setState
+    this.setState({ products });
   };
 
   changeHandler = (e, id) => {
-    const allProducts = [...this.state.products];
-    const selectedItem = allProducts.find((p) => p.id === id);
-    selectedItem.title = e.target.value;
-    this.setState({ products: allProducts });
+    const index = this.state.products.findIndex((p) => p.id === id);
+    // get all of the products
+    const products = [...this.state.products];
+    // clone the selected index and update the title
+    const product = { ...this.state.products[index] };
+    product.title = e.target.value;
+    // replace the product
+    products[index] = product;
+    // setState
+    this.setState({ products });
   };
 
   decrementHandler = (id) => {
-    const allProducts = [...this.state.products];
-    const selectedItem = allProducts.find((p) => p.id === id);
-    if (selectedItem.quantity === 1) {
+    const index = this.state.products.findIndex((p) => p.id === id);
+    // get all of the products
+    const products = [...this.state.products];
+    // clone the selected index and update the quantity
+    const product = { ...this.state.products[index] };
+    if (product.quantity === 1) {
       this.removeHandler(id);
       return;
     }
-    selectedItem.quantity--;
-    this.setState({ products: allProducts });
+    product.quantity--;
+    // replace the product
+    products[index] = product;
+    // setState
+    this.setState({ products });
   };
 
   render() {
     return (
       <div className="container">
         <Navbar
-          totalItems={this.state.products.length}
+          totalItems={this.state.products.filter((p) => p.quantity > 0).length}
         />
         <ProductList
           products={this.state.products}
