@@ -12,3 +12,16 @@
 .nav h1 {
   font-size: 25px;
 }
+
+.nav span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  width: 27px;
+  height: 27px;
+  background-color: #d9d1fd;
+  color: #6f27e4;
+  font-weight: 600;
+  margin-left: 1rem;
+}
