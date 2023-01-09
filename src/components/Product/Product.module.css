@@ -37,3 +37,15 @@
   font-size: 14px;
   font-weight: 500;
 }
+
+.input {
+  outline: none;
+  border: 1px solid #6d28d9;
+  border-radius: 5px;
+  padding: 5px;
+  color: #444;
+}
+
+.input:focus {
+  outline: 1px solid #6d28d9;
+}
