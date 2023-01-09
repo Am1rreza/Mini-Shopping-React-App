@@ -1,6 +1,7 @@
 import "./App.css";
 import React, { Component } from "react";
 import ProductList from "./components/ProductList/ProductList";
+import Navbar from "./components/Navbar/Navbar";
 
 class App extends Component {
   state = {};
@@ -8,7 +9,7 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <h1>Shopping App</h1>
+        <Navbar />
         <ProductList />
       </div>
     );
