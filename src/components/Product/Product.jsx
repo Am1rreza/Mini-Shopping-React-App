@@ -20,10 +20,12 @@ const Product = ({ product, onDelete, onIncrement, onChange, onDecrement }) => {
         +
       </button>
       <button
-        className={`${styles.button} ${styles.inc}`}
+        className={`${styles.button} ${styles.inc} ${
+          product.quantity === 1 && styles.remove
+        }`}
         onClick={onDecrement}
       >
-        {product.quantity > 1 ? "-" : <BiTrash style={{color:"#d71717"}} />}
+        {product.quantity > 1 ? "-" : <BiTrash />}
       </button>
       <button className={styles.button} onClick={onDelete}>
         Delete

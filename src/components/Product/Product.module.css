@@ -50,3 +50,9 @@
 .input:focus {
   outline: 1px solid #6d28d9;
 }
+
+.remove {
+  color: #ec4444;
+  border: 1px solid #ec4444;
+  background-color: #fff;
+}
