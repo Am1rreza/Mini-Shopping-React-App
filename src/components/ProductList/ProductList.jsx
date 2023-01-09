@@ -40,6 +40,13 @@ const ProductList = () => {
     setProducts(allProducts);
   };
 
+  // conditional rendering
+  if (products.length === 0) {
+    return (
+      <h2 style={{ marginTop: "2rem" }}>There is no product in your cart!</h2>
+    );
+  }
+
   return (
     <div>
       {products.map((product) => {
