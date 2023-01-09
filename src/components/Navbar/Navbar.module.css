@@ -9,8 +9,10 @@
   align-items: center;
 }
 
-.nav h1 {
+.nav h2 {
   font-size: 25px;
+  line-height: 0.95em;
+  margin-bottom: 4px;
 }
 
 .nav span {
