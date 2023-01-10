@@ -4,7 +4,7 @@ const ProductList = ({products,onRemove,onDecrement,onChange,onIncrement}) => {
   // conditional rendering
   if (products.length === 0) {
     return (
-      <h2 style={{ marginTop: "2rem" }}>There is no product in your cart!</h2>
+      <h2 style={{ marginTop: "0.5rem" }}>There is no product in your cart!</h2>
     );
   }
 
