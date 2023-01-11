@@ -2,6 +2,7 @@ import "./App.css";
 import React, { Component } from "react";
 import ProductList from "./components/ProductList/ProductList";
 import Navbar from "./components/Navbar/Navbar";
+import Wrapper from "./components/HOC/Wrapper";
 
 class App extends Component {
   state = {
@@ -64,7 +65,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container">
+      <>
         <Navbar
           totalItems={this.state.products.filter((p) => p.quantity > 0).length}
         />
@@ -75,9 +76,9 @@ class App extends Component {
           onIncrement={this.incrementHandler}
           onDecrement={this.decrementHandler}
         />
-      </div>
+      </>
     );
   }
 }
 
-export default App;
+export default Wrapper(App, "container");
