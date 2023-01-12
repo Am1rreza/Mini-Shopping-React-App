@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import ProductList from "./components/ProductList/ProductList";
 import Navbar from "./components/Navbar/Navbar";
 import Wrapper from "./components/HOC/Wrapper";
+import CounterOne from "./components/Context/CounterOne";
+import CounterProvider from "./components/Context/CounterProvider";
 
 class App extends Component {
   state = {
@@ -66,7 +68,7 @@ class App extends Component {
   render() {
     return (
       <>
-        <Navbar
+        {/* <Navbar
           totalItems={this.state.products.filter((p) => p.quantity > 0).length}
         />
         <ProductList
@@ -75,7 +77,10 @@ class App extends Component {
           onChange={this.changeHandler}
           onIncrement={this.incrementHandler}
           onDecrement={this.decrementHandler}
-        />
+        /> */}
+        <CounterProvider>
+          <CounterOne/>
+        </CounterProvider>
       </>
     );
   }
