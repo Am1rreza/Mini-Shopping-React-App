@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Wrapper from "./components/HOC/Wrapper";
 import CounterOne from "./components/Context/CounterOne";
 import CounterProvider from "./components/Context/CounterProvider";
+import CountReducer from "./components/Context/Reducer/CountRecuer";
 
 class App extends Component {
   state = {
@@ -79,7 +80,7 @@ class App extends Component {
           onDecrement={this.decrementHandler}
         /> */}
         <CounterProvider>
-          <CounterOne/>
+          <CountReducer/>
         </CounterProvider>
       </>
     );
