@@ -1,7 +1,9 @@
 import styles from "./Product.module.css";
 import { BiTrash } from "react-icons/bi";
 
-const Product = ({ product, onDelete, onIncrement, onChange, onDecrement }) => {
+const Product = (props) => {
+  const { product, onDelete, onIncrement, onChange, onDecrement } = props;
+
   return (
     <div className={styles.product}>
       <p>{product.title} Course</p>
