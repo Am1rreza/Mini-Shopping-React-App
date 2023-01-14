@@ -1,16 +1,17 @@
 import "./App.css";
-import React, { useState } from "react";
+import React from "react";
 import ProductList from "./components/ProductList/ProductList";
 import Navbar from "./components/Navbar/Navbar";
 import Wrapper from "./components/HOC/Wrapper";
+import ProductsProvider, {
+  useProducts,
+  useProductsAction,
+} from "./components/Providers/ProductsProvider";
 
 const App = () => {
-  const [products, setProducts] = useState([
-    { id: 1, title: "React", price: "99$", quantity: 1 },
-    { id: 2, title: "HTML & CSS", price: "19$", quantity: 1 },
-    { id: 3, title: "Node JS", price: "79$", quantity: 1 },
-    { id: 4, title: "Tailwind", price: "39$", quantity: 1 },
-  ]);
+  // import state
+  const products = useProducts();
+  const setProducts = useProductsAction();
 
   // handlers
   const removeHandler = (id) => {
@@ -63,14 +64,15 @@ const App = () => {
 
   return (
     <>
-      <Navbar totalItems={products.filter((p) => p.quantity > 0).length} />
-      <ProductList
-        products={products}
-        onRemove={removeHandler}
-        onChange={changeHandler}
-        onIncrement={incrementHandler}
-        onDecrement={decrementHandler}
-      />
+      <ProductsProvider>
+        <Navbar/>
+        <ProductList
+          onRemove={removeHandler}
+          onChange={changeHandler}
+          onIncrement={incrementHandler}
+          onDecrement={decrementHandler}
+        />
+      </ProductsProvider>
     </>
   );
 };

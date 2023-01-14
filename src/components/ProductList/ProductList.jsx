@@ -1,6 +1,9 @@
 import Product from "../Product/Product";
+import { useProducts } from "../Providers/ProductsProvider";
 
-const ProductList = ({products,onRemove,onDecrement,onChange,onIncrement}) => {
+const ProductList = ({ onRemove, onDecrement, onChange, onIncrement }) => {
+  const products = useProducts();
+  
   // conditional rendering
   if (products.length === 0) {
     return (
