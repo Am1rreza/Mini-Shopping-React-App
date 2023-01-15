@@ -10,7 +10,7 @@ export const productsData = [
     id: 2,
     title: "Hanes Cotton T-Shirt",
     quantity: 1,
-    availableSizes: ["S", "X", "L", "XL"],
+    availableSizes: ["S", "X", "M", "L", "XL"],
     price: 25,
   },
   {
@@ -31,7 +31,7 @@ export const productsData = [
     id: 5,
     title: "Russell T-Shirt",
     quantity: 1,
-    availableSizes: ["X", "XXL"],
+    availableSizes: ["X", "M", "XXL"],
     price: 40,
   },
   {
@@ -52,7 +52,7 @@ export const productsData = [
     id: 8,
     title: "Ritual T-Shirt",
     quantity: 1,
-    availableSizes: ["X", "L", "XL", "XXL"],
+    availableSizes: ["X", "M", "L", "XL", "XXL"],
     price: 40,
   },
   {
