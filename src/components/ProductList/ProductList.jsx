@@ -3,8 +3,7 @@ import { useProducts, useProductsAction } from "../Providers/ProductsProvider";
 
 const ProductList = () => {
   const products = useProducts();
-  const { incrementHandler, changeHandler, decrementHandler, removeHandler } =
-    useProductsAction();
+  const dispatch = useProductsAction();
 
   // conditional rendering
   if (products.length === 0) {
@@ -20,10 +19,12 @@ const ProductList = () => {
           <Product
             key={product.id}
             product={product}
-            onDelete={() => removeHandler(product.id)}
-            onChange={(e) => changeHandler(e, product.id)}
-            onIncrement={() => incrementHandler(product.id)}
-            onDecrement={() => decrementHandler(product.id)}
+            onDelete={() => dispatch({ type: "remove", id: product.id })}
+            onChange={(e) =>
+              dispatch({ type: "edit", id: product.id, event: e })
+            }
+            onIncrement={() => dispatch({ type: "increment", id: product.id })}
+            onDecrement={() => dispatch({ type: "decrement", id: product.id })}
           />
         );
       })}
