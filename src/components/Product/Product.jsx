@@ -6,8 +6,8 @@ const Product = (props) => {
 
   return (
     <div className={styles.product}>
-      <p>{product.title} Course</p>
-      <p>{product.price}</p>
+      <p>{product.title}</p>
+      <p>{product.price} $</p>
       <span className={styles.value}>{product.quantity}</span>
       <button
         className={`${styles.button} ${styles.inc}`}
