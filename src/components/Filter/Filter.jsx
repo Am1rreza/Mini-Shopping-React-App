@@ -1,29 +1,37 @@
 import { useState } from "react";
+import Select from "react-select";
+import styles from "./filter.module.css";
 import { useProductsAction } from "../Providers/ProductsProvider";
 
 const Filter = () => {
   const dispatch = useProductsAction();
   const [value, setValue] = useState("");
+  const options = [
+    { value: "", label: "ALL" },
+    { value: "XS", label: "XS" },
+    { value: "S", label: "S" },
+    { value: "M", label: "M" },
+    { value: "L", label: "L" },
+    { value: "XL", label: "XL" },
+    { value: "XXL", label: "XXL" },
+  ];
 
-  const changeHandler = (e) => {
-    setValue(e.target.value);
-    dispatch({ type: "filter", event: e });
+  const changeHandler = (selectedOption) => {
+    setValue(selectedOption);
+    dispatch({ type: "filter", selectedOption: selectedOption });
   };
 
   return (
-    <div>
-      <p>Filter Products Based on :</p>
-      <div>
-        Order by
-        <select onChange={changeHandler} value={value}>
-          <option value="">All</option>
-          <option value="XS">XS</option>
-          <option value="S">S</option>
-          <option value="M">M</option>
-          <option value="X">X</option>
-          <option value="XL">XL</option>
-          <option value="XXL">XXL</option>
-        </select>
+    <div className={styles.filter}>
+      <p>Filter Products :</p>
+      <div className={styles.selectContainer}>
+        <span>Order by</span>
+        <Select
+          value={value}
+          onChange={changeHandler}
+          options={options}
+          className={styles.select}
+        />
       </div>
     </div>
   );
