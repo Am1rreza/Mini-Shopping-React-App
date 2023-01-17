@@ -1,0 +1,10 @@
+  .select {
+    width: 150px;
+  }
+  
+  .selectContainer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
