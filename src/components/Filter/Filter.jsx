@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Select from "react-select";
 import styles from "./filter.module.css";
 import { useProductsAction } from "../Providers/ProductsProvider";
 import SelectComponent from "../../common/Select/Select";
