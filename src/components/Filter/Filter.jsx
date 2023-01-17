@@ -2,6 +2,7 @@ import { useState } from "react";
 import styles from "./filter.module.css";
 import { useProductsAction } from "../Providers/ProductsProvider";
 import SelectComponent from "../../common/Select/Select";
+import Search from "../../common/Search/Search";
 
 const Filter = () => {
   const dispatch = useProductsAction();
@@ -36,21 +37,24 @@ const Filter = () => {
   };
 
   return (
-    <div className={styles.filter}>
-      <p>Filter Products :</p>
-      <SelectComponent
-        title={"Order by"}
-        value={order}
-        onChange={orderHandler}
-        options={orderOptions}
-      />
-      <SelectComponent
-        title={"Sort by"}
-        value={sort}
-        onChange={sortHandler}
-        options={sortOptions}
-      />
-    </div>
+    <>
+      <Search filterData={order} filterFunction={orderHandler} />
+      <div className={styles.filter}>
+        <p>Filter Products :</p>
+        <SelectComponent
+          title={"Order by"}
+          value={order}
+          onChange={orderHandler}
+          options={orderOptions}
+        />
+        <SelectComponent
+          title={"Sort by"}
+          value={sort}
+          onChange={sortHandler}
+          options={sortOptions}
+        />
+      </div>
+    </>
   );
 };
 

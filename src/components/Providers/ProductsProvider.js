@@ -6,7 +6,7 @@ import _ from "lodash";
 const ProductContext = React.createContext(); // staet
 const ProductContextDispatcher = React.createContext(); // setState
 // Reducer
-const reducer = (state, action) => {
+const reducer = (state = productsData, action) => {
   switch (action.type) {
     case "increment": {
       const index = state.findIndex((p) => p.id === action.id);
@@ -60,7 +60,7 @@ const reducer = (state, action) => {
       const value = action.selectedOption.value;
 
       if (value === "") {
-        return state;
+        return productsData;
       } else {
         const filteredProducts = productsData.filter(
           (p) => p.availableSizes.indexOf(value) >= 0
@@ -86,6 +86,19 @@ const reducer = (state, action) => {
         return state;
       } else {
         const filteredProducts = state.filter((p) =>
+          p.title.toLowerCase().includes(value.toLowerCase())
+        );
+
+        return filteredProducts;
+      }
+    }
+
+    case "searchWithNoOrder": {
+      const value = action.event.target.value;
+      if (value === "") {
+        return productsData;
+      } else {
+        const filteredProducts = productsData.filter((p) =>
           p.title.toLowerCase().includes(value.toLowerCase())
         );
 

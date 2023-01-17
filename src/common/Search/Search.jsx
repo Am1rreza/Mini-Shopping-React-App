@@ -2,13 +2,18 @@ import { useState } from "react";
 import { useProductsAction } from "../../components/Providers/ProductsProvider";
 import styles from "./search.module.css";
 
-const Search = () => {
+const Search = ({ filterFunction, filterData }) => {
   const dispatch = useProductsAction();
   const [value, setValue] = useState("");
 
   const changeHandler = (e) => {
     setValue(e.target.value);
-    dispatch({ type: "search", event: e });
+    filterFunction(filterData);
+    if (filterData === "" || filterData === "All") {
+      dispatch({ type: "searchWithNoOrder", event: e });
+    } else {
+      dispatch({ type: "search", event: e });
+    }
   };
 
   return (
@@ -17,7 +22,7 @@ const Search = () => {
       <input
         type="text"
         placeholder="Search Something..."
-        onChange={changeHandler}
+        onChange={(e) => changeHandler(e)}
         value={value}
       />
     </div>
