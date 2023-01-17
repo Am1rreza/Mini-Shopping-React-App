@@ -60,7 +60,7 @@ const reducer = (state, action) => {
       const value = action.selectedOption.value;
 
       if (value === "") {
-        return productsData;
+        return state;
       } else {
         const filteredProducts = productsData.filter(
           (p) => p.availableSizes.indexOf(value) >= 0
@@ -77,6 +77,19 @@ const reducer = (state, action) => {
         return _.orderBy(allProducts, ["price"], ["asc"]);
       } else {
         return _.orderBy(allProducts, ["price"], ["desc"]);
+      }
+    }
+
+    case "search": {
+      const value = action.event.target.value;
+      if (value === "") {
+        return state;
+      } else {
+        const filteredProducts = state.filter((p) =>
+          p.title.toLowerCase().includes(value.toLowerCase())
+        );
+
+        return filteredProducts;
       }
     }
 
