@@ -1,0 +1,33 @@
+.formControl {
+  width: 40rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.formControl input {
+  border: 1px solid #ccc;
+  min-height: 38px;
+  border-radius: 4px;
+  width: 20rem;
+  outline: 0;
+  padding: 0 10px;
+  transition: all 100ms;
+}
+
+.formControl input::placeholder {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 15px;
+}
+
+.formControl input:focus {
+  outline: 2px solid #2684ff;
+}
+
+.formControl p {
+  font-weight: bold;
+  font-size: 19px;
+}
